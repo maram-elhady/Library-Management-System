@@ -28,7 +28,7 @@ namespace LibraryManagementSystem.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "Name", "NormalizedName", "ConcurrencyStamp" },
-                values: new object[] { Guid.NewGuid().ToString(), "User", "User".ToUpper(), Guid.NewGuid().ToString() }
+                values: new object[] { Guid.NewGuid().ToString(), "Member", "Member".ToUpper(), Guid.NewGuid().ToString() }
                );
         }
 
