@@ -10,6 +10,13 @@ namespace LibraryManagementSystem.ModelsConfig
         {
             builder.HasKey(c => c.CategoryId);
             builder.Property(c => c.Name).HasMaxLength(150).IsRequired();
+
+
+            // Self-referencing one-to-many relationship
+            builder.HasOne(c => c.ParentCategory)
+                   .WithMany(c => c.SubCategories)
+                   .HasForeignKey(c => c.ParentCategoryId)
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

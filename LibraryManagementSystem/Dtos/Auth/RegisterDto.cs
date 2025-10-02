@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LibraryManagementSystem.Dtos
+namespace LibraryManagementSystem.Dtos.Auth
 {
     public class RegisterDto
     {

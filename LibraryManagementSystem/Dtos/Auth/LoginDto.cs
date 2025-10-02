@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Dtos
+﻿namespace LibraryManagementSystem.Dtos.Auth
 {
     public class LoginDto
     {
