@@ -88,7 +88,7 @@ namespace LibraryManagementSystem.Services.BookService
                     ISBN = b.ISBN,
                     Edition = b.Edition,
                     Summary = b.Summary,
-                    CoverImagePath = baseUrl+b.CoverImagePath,
+                    CoverImagePath = $"{baseUrl}{b.CoverImagePath}",
                     Status = b.Status,
                     PublisherId = b.PublisherId,
                     PublisherName = b.Publisher.Name,

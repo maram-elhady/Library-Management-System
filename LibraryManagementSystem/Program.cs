@@ -57,7 +57,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddHttpContextAccessor();
+//builder.Services.AddHttpContextAccessor();
 //add authorize button
 builder.Services.AddSwaggerGen(c =>
 {
@@ -103,6 +103,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 
