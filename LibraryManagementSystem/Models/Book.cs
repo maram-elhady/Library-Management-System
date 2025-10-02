@@ -13,7 +13,7 @@
         public string Status { get; set; } = "Available";
 
         public int PublisherId { get; set; }
-        public Publisher Publisher { get; set; } = new Publisher();
+        public Publisher Publisher { get; set; } 
 
         public ICollection<BookAuthor> BookAuthors { get; set; } = new List<BookAuthor>();
         public ICollection<BookCategory> BookCategories { get; set; } = new List<BookCategory>();

@@ -4,6 +4,7 @@ using LibraryManagementSystem.Services.AuthService;
 using LibraryManagementSystem.Services.BookService;
 using LibraryManagementSystem.Services.BorrowService;
 using LibraryManagementSystem.Services.MemeberService;
+using LibraryManagementSystem.Services.MetadataService;
 using LibraryManagementSystem.Services.SystemUserService;
 using LibraryManagementSystem.Services.UserActivityService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -32,6 +33,7 @@ builder.Services.AddScoped<IMemberService, MemberService>();
 builder.Services.AddScoped<ISystemUserService, SystemUserService>();
 builder.Services.AddScoped<IBorrowService, BorrowService>();
 builder.Services.AddScoped<IUserActivityLogService, UserActivityLogService>();
+builder.Services.AddScoped<IMetadataService, MetadataService>();
 
 
 builder.Services.AddAuthentication(options =>
@@ -55,7 +57,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-
+builder.Services.AddHttpContextAccessor();
 //add authorize button
 builder.Services.AddSwaggerGen(c =>
 {

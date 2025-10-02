@@ -19,7 +19,7 @@ namespace LibraryManagementSystem.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Create(BookCreateDto dto)
+        public async Task<IActionResult> Create([FromForm] BookCreateDto dto)
         {
             var book = await _bookService.CreateAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = book.BookId }, book);
@@ -42,7 +42,7 @@ namespace LibraryManagementSystem.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, BookUpdateDto dto)
+        public async Task<IActionResult> Update(int id, [FromForm] BookUpdateDto dto)
         {
             var book = await _bookService.UpdateAsync(id, dto);
             if (book == null) return NotFound(new { message = "Book not found" });
