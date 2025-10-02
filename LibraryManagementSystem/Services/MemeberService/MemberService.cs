@@ -51,13 +51,14 @@ namespace LibraryManagementSystem.Services.MemeberService
                 Id = user.Id,
                 FullName = user.FullName,
                 Email = user.Email!,
+                phoneNumber=user.PhoneNumber,
                 Role = "Member"
             };
         }
 
         public async Task<string> UpdateAsync(string email, UpdateMemberDto dto)
         {
-            var user = await _userManager.FindByIdAsync(email);
+            var user = await _userManager.FindByEmailAsync(email);
             if (user == null) return "Member not found";
 
             user.FullName = dto.FullName;
@@ -70,7 +71,7 @@ namespace LibraryManagementSystem.Services.MemeberService
 
         public async Task<string> DeleteAsync(string id)
         {
-            var user = await _userManager.FindByIdAsync(id);
+            var user = await _userManager.FindByEmailAsync(id);
             if (user == null) return "Member not found";
 
             var result = await _userManager.DeleteAsync(user);
