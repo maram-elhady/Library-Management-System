@@ -1,5 +1,6 @@
 ﻿using LibraryManagementSystem.Dtos.BorrowDtos;
 using LibraryManagementSystem.Services.BorrowService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +8,7 @@ namespace LibraryManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Administrator,Librarian,Staff")]
+    [Authorize(Roles = "Administrator,Librarian,Staff")]
     public class BorrowController : ControllerBase
     {
         private readonly IBorrowService _borrowService;

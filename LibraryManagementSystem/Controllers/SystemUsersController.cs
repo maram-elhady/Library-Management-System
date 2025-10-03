@@ -1,5 +1,6 @@
 ﻿using LibraryManagementSystem.Dtos.SystemUserDtos;
 using LibraryManagementSystem.Services.SystemUserService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +8,7 @@ namespace LibraryManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")]
     public class SystemUsersController : ControllerBase
     {
         private readonly ISystemUserService _systemUserService;

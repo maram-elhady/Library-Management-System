@@ -9,7 +9,7 @@ namespace LibraryManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")]
     public class UserActivityLogsController : ControllerBase
     {
         private readonly IUserActivityLogService _logService;
