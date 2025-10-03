@@ -144,3 +144,9 @@ LibraryManagementSystem/
 You can view the ERD here:  
 [Library System ERD](https://dbdiagram.io/d/Library-System-68dcccbfd2b621e422b9246d)
 
+## SQL Scripts
+
+You can find the sample SQL scripts here:  
+[📂 SQLScripts.txt](./LibraryManagementSystem/SQLScripts.txt)
+
+
