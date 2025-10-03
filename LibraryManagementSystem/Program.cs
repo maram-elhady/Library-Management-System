@@ -5,6 +5,7 @@ using LibraryManagementSystem.Services.BookService;
 using LibraryManagementSystem.Services.BorrowService;
 using LibraryManagementSystem.Services.MemeberService;
 using LibraryManagementSystem.Services.MetadataService;
+using LibraryManagementSystem.Services.SearchService;
 using LibraryManagementSystem.Services.SystemUserService;
 using LibraryManagementSystem.Services.UserActivityService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -34,6 +35,7 @@ builder.Services.AddScoped<ISystemUserService, SystemUserService>();
 builder.Services.AddScoped<IBorrowService, BorrowService>();
 builder.Services.AddScoped<IUserActivityLogService, UserActivityLogService>();
 builder.Services.AddScoped<IMetadataService, MetadataService>();
+builder.Services.AddScoped<ISearchService, SearchService>();
 
 
 builder.Services.AddAuthentication(options =>

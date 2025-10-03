@@ -13,7 +13,6 @@ namespace LibraryManagementSystem.Models
         public DbSet<Book> Books { get; set; }
         public DbSet<BookAuthor> BookAuthors { get; set; }
         public DbSet<BookCategory> BookCategories { get; set; }
-        public DbSet<Member> Members { get; set; }
         public DbSet<BorrowTransaction> BorrowTransactions { get; set; }
         public DbSet<UserActivityLog> UserActivityLogs { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)

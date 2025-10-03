@@ -37,7 +37,6 @@ namespace LibraryManagementSystem.Controllers
         [Authorize] // any authenticated user can log his action
         public async Task<IActionResult> LogActivity([FromBody] CreateUserActivityLogDto dto)
         {
-            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var userId = User.FindFirst("uid")?.Value;
             var log = await _logService.LogActivityAsync(userId, dto);
             return Ok(log);

@@ -5,7 +5,7 @@
         public int BorrowTransactionId { get; set; }
         public int BookId { get; set; }
         public string BookTitle { get; set; } = string.Empty;
-        public int MemberId { get; set; }
+        public string MemberId { get; set; }
         public string MemberName { get; set; } = string.Empty;
         public DateTime BorrowDate { get; set; }
         public DateTime DueDate { get; set; }

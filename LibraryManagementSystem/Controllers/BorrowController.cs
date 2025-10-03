@@ -7,7 +7,7 @@ namespace LibraryManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Administrator,Librarian")]
+    //[Authorize(Roles = "Administrator,Librarian,Staff")]
     public class BorrowController : ControllerBase
     {
         private readonly IBorrowService _borrowService;
@@ -41,7 +41,7 @@ namespace LibraryManagementSystem.Controllers
         }
 
         [HttpGet("member/{memberId}")]
-        public async Task<IActionResult> GetByMember(int memberId)
+        public async Task<IActionResult> GetByMember(string memberId)
         {
             var result = await _borrowService.GetByMemberAsync(memberId);
             return Ok(result);

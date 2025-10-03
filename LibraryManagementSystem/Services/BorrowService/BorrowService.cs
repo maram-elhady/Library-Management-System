@@ -22,7 +22,7 @@ namespace LibraryManagementSystem.Services.BorrowService
             var borrow = new BorrowTransaction
             {
                 BookId = dto.BookId,
-                MemberId = dto.MemberId,
+                MemberId=dto.MemberId,
                 UserId = dto.UserId,
                 BorrowDate = DateTime.UtcNow,
                 DueDate = dto.DueDate,
@@ -40,7 +40,7 @@ namespace LibraryManagementSystem.Services.BorrowService
                 BookId = book.BookId,
                 BookTitle = book.Title,
                 MemberId = dto.MemberId,
-                MemberName = (await _context.Members.FindAsync(dto.MemberId))?.FullName ?? "Unknown",
+                MemberName = (await _context.Users.FindAsync(dto.MemberId))?.FullName ?? "Unknown",
                 BorrowDate = borrow.BorrowDate,
                 DueDate = borrow.DueDate,
                 Status = borrow.Status
@@ -51,7 +51,7 @@ namespace LibraryManagementSystem.Services.BorrowService
         {
             var borrow = await _context.BorrowTransactions
                 .Include(b => b.Book)
-                .Include(b => b.Member)
+                .Include(b => b.User)
                 .FirstOrDefaultAsync(b => b.BorrowTransactionId == id);
 
             if (borrow == null) return null;
@@ -62,7 +62,7 @@ namespace LibraryManagementSystem.Services.BorrowService
                 BookId = borrow.BookId,
                 BookTitle = borrow.Book.Title,
                 MemberId = borrow.MemberId,
-                MemberName = borrow.Member.FullName,
+                MemberName = borrow.User.FullName,
                 BorrowDate = borrow.BorrowDate,
                 DueDate = borrow.DueDate,
                 ReturnDate = borrow.ReturnDate,
@@ -74,14 +74,14 @@ namespace LibraryManagementSystem.Services.BorrowService
         {
             return await _context.BorrowTransactions
                 .Include(b => b.Book)
-                .Include(b => b.Member)
+                .Include(b => b.User)
                 .Select(b => new BorrowDto
                 {
                     BorrowTransactionId = b.BorrowTransactionId,
                     BookId = b.BookId,
                     BookTitle = b.Book.Title,
                     MemberId = b.MemberId,
-                    MemberName = b.Member.FullName,
+                    MemberName = b.User.FullName,
                     BorrowDate = b.BorrowDate,
                     DueDate = b.DueDate,
                     ReturnDate = b.ReturnDate,
@@ -89,11 +89,11 @@ namespace LibraryManagementSystem.Services.BorrowService
                 }).ToListAsync();
         }
 
-        public async Task<IEnumerable<BorrowDto>> GetByMemberAsync(int memberId)
+        public async Task<IEnumerable<BorrowDto>> GetByMemberAsync(string memberId)
         {
             return await _context.BorrowTransactions
                 .Include(b => b.Book)
-                .Include(b => b.Member)
+                .Include(b => b.User)
                 .Where(b => b.MemberId == memberId)
                 .Select(b => new BorrowDto
                 {
@@ -101,7 +101,7 @@ namespace LibraryManagementSystem.Services.BorrowService
                     BookId = b.BookId,
                     BookTitle = b.Book.Title,
                     MemberId = b.MemberId,
-                    MemberName = b.Member.FullName,
+                    MemberName = b.User.FullName,
                     BorrowDate = b.BorrowDate,
                     DueDate = b.DueDate,
                     ReturnDate = b.ReturnDate,
@@ -148,5 +148,6 @@ namespace LibraryManagementSystem.Services.BorrowService
 
             return "Borrow transaction deleted successfully";
         }
+
     }
 }
