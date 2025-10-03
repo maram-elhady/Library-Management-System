@@ -147,6 +147,6 @@ You can view the ERD here:
 ## SQL Scripts
 
 You can find the sample SQL scripts here:  
-[📂 sqlscript.txt](./SQLScripts.txt)
+[📂 SQLScripts.txt](./LibraryManagementSystem/SQLScripts.txt)
 
 
