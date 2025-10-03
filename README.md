@@ -27,7 +27,7 @@ The system provides features for managing books, members, borrowing/returning, s
 - Manage **Authors**, **Publishers**, and **Categories**
 - Support hierarchical categories (e.g., `Fiction > Fantasy`)
 
-### 🔹 Roles & Authentication
+### 🔹 Roles(Authorization) & Authentication
 - User registration & login with **JWT authentication**
 - Role-based access control
 - Assign/remove roles (`Admin`, `Librarian`, `Member`)
