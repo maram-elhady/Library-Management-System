@@ -105,11 +105,6 @@ LibraryManagementSystem/
    dotnet run
    ```
 
-5. Swagger UI available at:
-   ```
-   https://localhost:7211/swagger
-   ```
-
 ---
 
 ## 📌 Example API Endpoints
