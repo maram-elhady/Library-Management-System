@@ -1,0 +1,41 @@
+﻿INSERT INTO Books (Title, Language, PublicationYear, ISBN, Edition, Summary, CoverImagePath, Status, PublisherId)
+VALUES ('Harry Potter and the Philosopher''s Stone', 'English', 1997, '9780747532699', '1st', 'First Harry Potter Book', 'books\7e1b65b3-9bc6-4143-a45c-d7e30a6de07f_download.jpg', 'Available', 1);
+
+INSERT INTO Books (Title, Language, PublicationYear, ISBN, Edition, Summary, CoverImagePath, Status, PublisherId)
+VALUES ('A Game of Thrones', 'English', 1996, '9780553103540', '1st', 'First book in A Song of Ice and Fire', 'books\7e1b65b3-9bc6-4143-a45c-d7e30a6de07f_download.jpg', 'Available', 2);
+
+
+INSERT INTO BookAuthors (BookId, AuthorId) VALUES (1004, 1); 
+INSERT INTO BookAuthors (BookId, AuthorId) VALUES (1005, 2); 
+
+INSERT INTO BookCategories (BookId, CategoryId) VALUES (1004, 1); 
+INSERT INTO BookCategories (BookId, CategoryId) VALUES (1005, 4); 
+
+INSERT INTO BorrowTransactions (BookId, MemberId ,UserId, BorrowDate, DueDate, Status) 
+VALUES (1004, 'edc68b70-63f8-43d9-9b58-cb51a1aa24f1', '59f3e60b-0b3c-4b35-9840-fb63bae85b67',GETDATE(), DATEADD(DAY, 14, GETDATE()), 'Borrowed');
+
+
+INSERT INTO UserActivityLogs (UserId, Action, EntityType, EntityId, Details, CreatedAt)
+VALUES ('edc68b70-63f8-43d9-9b58-cb51a1aa24f1', 'Borrowed Book', 'BorrowTransaction', '2', 'Borrowed GOT Book', GETDATE());
+
+
+**Metadata
+INSERT INTO Authors (FullName) VALUES ('J.K. Rowling');
+INSERT INTO Authors (FullName) VALUES ('George R.R. Martin');
+INSERT INTO Authors (FullName) VALUES ('Agatha Christie');
+INSERT INTO Authors (FullName) VALUES ('Stephen King');
+INSERT INTO Authors (FullName) VALUES ('Jane Austen');
+
+
+INSERT INTO Publishers (Name, Country, Email) VALUES ('Penguin Books', 'UK', 'contact@penguin.com');
+INSERT INTO Publishers (Name, Country, Email) VALUES ('HarperCollins', 'USA', 'info@harpercollins.com');
+INSERT INTO Publishers (Name, Country, Email) VALUES ('Bloomsbury', 'UK', 'info@bloomsbury.com');
+INSERT INTO Publishers (Name, Country, Email) VALUES ('Random House', 'USA', 'support@randomhouse.com');
+INSERT INTO Publishers (Name, Country, Email) VALUES ('Macmillan', 'Germany', 'contact@macmillan.com');
+
+
+INSERT INTO Categories (Name, ParentCategoryId) VALUES ('Fiction', NULL);
+INSERT INTO Categories (Name, ParentCategoryId) VALUES ('Science Fiction', 1);
+INSERT INTO Categories (Name, ParentCategoryId) VALUES ('Fantasy', 1);
+INSERT INTO Categories (Name, ParentCategoryId) VALUES ('Mystery', NULL);
+INSERT INTO Categories (Name, ParentCategoryId) VALUES ('Romance', NULL);
